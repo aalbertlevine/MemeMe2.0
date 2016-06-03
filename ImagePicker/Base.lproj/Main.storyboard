@@ -9,7 +9,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="7J8-X6-0Mu">
             <objects>
-                <tabBarController id="EW3-lK-6Sf" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTabBarController" id="EW3-lK-6Sf" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="sVs-lb-2Yg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -207,15 +207,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bef-pC-aHC">
-                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <rect key="frame" x="-4" y="20" width="383" height="627"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="Bef-pC-aHC" secondAttribute="leading" id="2QR-AF-nMw"/>
-                            <constraint firstItem="Bef-pC-aHC" firstAttribute="centerX" secondItem="Asw-me-s4Y" secondAttribute="centerX" id="Hh6-SQ-k2e"/>
-                            <constraint firstItem="Bef-pC-aHC" firstAttribute="top" secondItem="eMp-ZD-AOo" secondAttribute="bottom" id="fP5-jI-bmB"/>
-                            <constraint firstItem="Bef-pC-aHC" firstAttribute="centerY" secondItem="Asw-me-s4Y" secondAttribute="centerY" id="wXS-8q-1W4"/>
+                            <constraint firstItem="Bef-pC-aHC" firstAttribute="leading" secondItem="Asw-me-s4Y" secondAttribute="leadingMargin" constant="-20" id="c2y-Fc-rQs"/>
+                            <constraint firstItem="keF-nV-12f" firstAttribute="top" secondItem="Bef-pC-aHC" secondAttribute="bottom" constant="20" id="fii-Un-Tkr"/>
+                            <constraint firstItem="Bef-pC-aHC" firstAttribute="top" secondItem="eMp-ZD-AOo" secondAttribute="bottom" id="tTv-nc-DIZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bef-pC-aHC" secondAttribute="trailing" constant="-20" id="xve-GV-b6l"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

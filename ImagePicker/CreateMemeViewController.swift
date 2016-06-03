@@ -203,8 +203,10 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func memeCanceled(sender: AnyObject) {
-        // Sets the app view back to initial load
-        self.viewDidLoad()
+        
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("HomeTabBarController") as! UITabBarController
+        presentViewController(controller, animated: true, completion: nil)
+        
     }
     
 
