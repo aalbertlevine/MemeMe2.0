@@ -9,14 +9,26 @@
 import Foundation
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDataSource {
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberOfRowsInSection: \(memes.count)")
         return self.memes.count
     }
     
@@ -27,7 +39,7 @@ class TableViewController: UIViewController, UITableViewDataSource {
         
         // Set the image
         cell.imageView?.image = meme.memedImage
-        print("cellForRowAtIndexPath")
+        cell.textLabel?.text = "\(meme.topText) ... \(meme.bottomText)"
         return cell
     }
     

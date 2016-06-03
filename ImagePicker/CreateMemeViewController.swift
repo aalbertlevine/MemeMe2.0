@@ -199,7 +199,6 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
-        print(memesArray.count)
         
     }
     
