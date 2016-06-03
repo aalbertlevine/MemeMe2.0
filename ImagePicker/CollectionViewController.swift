@@ -20,17 +20,18 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let space: CGFloat = 3.0
-        let width = (self.view.frame.size.width - (2 * space)) / 3.0
-        let height = (self.view.frame.size.height - (2 * space)) / 3.0
+        let screenSize = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width
         
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSizeMake(width, height)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        flowLayout.itemSize = CGSize(width: screenWidth / 3, height: screenWidth / 3)
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        collectionView?.reloadData()
         self.tabBarController?.tabBar.hidden = false
     }
     
