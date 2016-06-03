@@ -44,7 +44,7 @@ class CollectionViewController: UICollectionViewController {
         let meme = self.memes[indexPath.row]
         
         // Set the image
-        cell.memeImageView = meme.memedImage
+        cell.memeImageView.image = meme.memedImage
         return cell
     }
     
