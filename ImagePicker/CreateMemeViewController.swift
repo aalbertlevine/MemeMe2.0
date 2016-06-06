@@ -38,28 +38,28 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set delegates
-        self.topTextField.delegate = self
-        self.bottomTextField.delegate = self
+        topTextField.delegate = self
+        bottomTextField.delegate = self
         // Hide some stuff
-        self.topTextField.hidden = true
-        self.bottomTextField.hidden = true
+        topTextField.hidden = true
+        bottomTextField.hidden = true
 //        self.topToolbar.hidden = true
-        self.imagePickerView.hidden = true
+        imagePickerView.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         // Setup text fields
         setupTextField(self.topTextField, defaultText: "TOP")
         setupTextField(self.bottomTextField, defaultText: "BOTTOM")
-        self.navigationController?.tabBarController?.tabBar.hidden = true
+        navigationController?.tabBarController?.tabBar.hidden = true
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
-        self.navigationController?.tabBarController?.tabBar.hidden = false
+        unsubscribeFromKeyboardNotifications()
+        navigationController?.tabBarController?.tabBar.hidden = false
     }
     
     
@@ -77,11 +77,11 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         if textField.text == "TOP" || textField.text == "BOTTOM" {
             textField.text = ""
         }
-        self.topToolbar.hidden = true
+        topToolbar.hidden = true
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        self.topToolbar.hidden = false
+        topToolbar.hidden = false
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -96,7 +96,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = source
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
 
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
@@ -110,11 +110,11 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imagePickerView.hidden = false
-            self.imagePickerView.image = image
-            self.topTextField.hidden = false
-            self.bottomTextField.hidden = false
-            self.topToolbar.hidden = false
+            imagePickerView.hidden = false
+            imagePickerView.image = image
+            topTextField.hidden = false
+            bottomTextField.hidden = false
+            topToolbar.hidden = false
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -128,14 +128,14 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     // MARK: Keyboard Notification
     
     func keyboardWillShow(notification: NSNotification) {
-        if self.bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y =  getKeyboardHeight(notification) * -1
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y =  getKeyboardHeight(notification) * -1
 
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -159,8 +159,8 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     func save() {
         //Create the meme
-        let meme = Meme( topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage:
-            self.imagePickerView.image!, memedImage: generateMemedImage())
+        let meme = Meme( topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage:
+            imagePickerView.image!, memedImage: generateMemedImage())
         
         // Add it to the memes array in the Application Delegate
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -204,7 +204,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func memeCanceled(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 

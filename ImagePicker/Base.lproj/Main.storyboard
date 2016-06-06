@@ -9,7 +9,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="7J8-X6-0Mu">
             <objects>
-                <tabBarController storyboardIdentifier="HomeTabBarController" id="EW3-lK-6Sf" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="EW3-lK-6Sf" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="sVs-lb-2Yg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -135,7 +135,7 @@
         <!--Sent Memes-->
         <scene sceneID="4S2-gI-zYt">
             <objects>
-                <viewController id="e5e-gS-J6W" customClass="TableViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="e5e-gS-J6W" customClass="TableViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l11-zK-Hlm"/>
                         <viewControllerLayoutGuide type="bottom" id="MIB-9l-EPv"/>
@@ -149,7 +149,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeCell" rowHeight="132" id="G4C-ap-YmN">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="132"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G4C-ap-YmN" id="2YT-Zx-St1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
