@@ -26,6 +26,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.separatorColor = UIColor.blackColor()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,10 +53,22 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    // Allow editing of table
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    // Swipe-to-delete
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        applicationDelegate.memes.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    }
+    
     @IBAction func addMeme(sender: AnyObject) {
         
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("CreateMemeViewController") as! CreateMemeViewController
-        self.navigationController!.pushViewController(controller, animated: true)
+        self.presentViewController(controller, animated: true, completion: nil)
         
     }
     

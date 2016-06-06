@@ -43,7 +43,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         // Hide some stuff
         self.topTextField.hidden = true
         self.bottomTextField.hidden = true
-        self.topToolbar.hidden = true
+//        self.topToolbar.hidden = true
         self.imagePickerView.hidden = true
     }
     
@@ -129,7 +129,8 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     func keyboardWillShow(notification: NSNotification) {
         if self.bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            self.view.frame.origin.y =  getKeyboardHeight(notification) * -1
+
         }
     }
     
@@ -203,10 +204,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func memeCanceled(sender: AnyObject) {
-        
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("HomeTabBarController") as! UITabBarController
-        presentViewController(controller, animated: true, completion: nil)
-        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 

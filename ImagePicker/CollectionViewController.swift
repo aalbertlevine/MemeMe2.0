@@ -61,7 +61,7 @@ class CollectionViewController: UICollectionViewController {
     @IBAction func addMeme(sender: AnyObject) {
         
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("CreateMemeViewController") as! CreateMemeViewController
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.presentViewController(controller, animated: true, completion: nil)
         
     }
     
